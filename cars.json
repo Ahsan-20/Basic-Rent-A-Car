@@ -1,1 +1,82 @@
-[{"id": 1, "name": "toyota corolla", "location": "islamabad", "price_per_day": "10000", "description": "sdsadsads", "car_type": "4 wheel", "model_year": "2001", "images": ["download (2).jpeg"]}, {"id": 2, "name": "fortuner", "location": "islamabad", "price_per_day": "10000", "description": "dasdasd", "car_type": "4 wheel", "model_year": "2002", "images": ["download (1).jpeg"]}, {"id": 3, "name": "cultus", "location": "islamabad", "price_per_day": "2000", "description": "low baget", "car_type": "dsa", "model_year": "2022", "images": ["download.jpeg"]}, {"id": 4, "name": "land cruiser", "location": "islamabad", "price_per_day": "10000", "description": "dasd", "car_type": "suv", "model_year": "2020", "images": ["download (3).jpeg"]}, {"id": 5, "name": "toyota corolla 2015", "location": "islamabad", "price_per_day": "10000", "description": "dsad", "car_type": "dsa", "model_year": "2012", "images": ["download (4).jpeg"]}, {"id": 6, "name": "honda civic", "location": "islamabad", "price_per_day": "10000", "description": "dsad", "car_type": "dsa", "model_year": "2022", "images": ["download (5).jpeg"]}, {"id": 8, "name": "bmw 5 series", "location": "islamabad", "price_per_day": "10000", "description": "sad", "car_type": "sed", "model_year": "21", "images": ["download (6).jpeg"]}, {"id": 8, "name": "toyota corolla", "location": "lahore", "price_per_day": "3000", "description": "comfortable", "car_type": "sed", "model_year": "2022", "images": ["images.jpeg"]}]
+[
+    {
+        "id": 1,
+        "name": "toyota corolla",
+        "location": "islamabad",
+        "price_per_day": "10000",
+        "description": "sdsadsads",
+        "car_type": "4 wheel",
+        "model_year": "2001",
+        "images": ["2.jpeg"]
+    },
+    {
+        "id": 2,
+        "name": "fortuner",
+        "location": "islamabad",
+        "price_per_day": "10000",
+        "description": "dasdasd",
+        "car_type": "4 wheel",
+        "model_year": "2002",
+        "images": ["1.jpeg"]
+    },
+    {
+        "id": 3,
+        "name": "cultus",
+        "location": "islamabad",
+        "price_per_day": "2000",
+        "description": "low baget",
+        "car_type": "dsa",
+        "model_year": "2022",
+        "images": ["download.jpeg"]
+    },
+    {
+        "id": 4,
+        "name": "land cruiser",
+        "location": "islamabad",
+        "price_per_day": "10000",
+        "description": "dasd",
+        "car_type": "suv",
+        "model_year": "2020",
+        "images": ["3.jpeg"]
+    },
+    {
+        "id": 5,
+        "name": "toyota corolla 2015",
+        "location": "islamabad",
+        "price_per_day": "10000",
+        "description": "dsad",
+        "car_type": "dsa",
+        "model_year": "2012",
+        "images": ["4.jpeg"]
+    },
+    {
+        "id": 6,
+        "name": "honda civic",
+        "location": "islamabad",
+        "price_per_day": "10000",
+        "description": "dsad",
+        "car_type": "dsa",
+        "model_year": "2022",
+        "images": ["5.jpeg"]
+    },
+    {
+        "id": 8,
+        "name": "bmw 5 series",
+        "location": "islamabad",
+        "price_per_day": "10000",
+        "description": "sad",
+        "car_type": "sed",
+        "model_year": "21",
+        "images": ["6.jpeg"]
+    },
+    {
+        "id": 8,
+        "name": "toyota corolla",
+        "location": "lahore",
+        "price_per_day": "3000",
+        "description": "comfortable",
+        "car_type": "sed",
+        "model_year": "2022",
+        "images": ["images.jpeg"]
+    }
+]
