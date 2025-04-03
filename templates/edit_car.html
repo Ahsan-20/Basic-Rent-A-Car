@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Car</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+
+    <!-- Header -->
+    <header class="bg-indigo-700 text-white py-5 flex items-center justify-between px-5">
+        <!-- Car Icon on the left -->
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/car.png" alt="Car Icon" class="h-10 w-10">
+        <h1 class="text-3xl font-bold text-center flex-grow">Edit Car Details</h1>
+    </header>
+
+    <!-- Form -->
+    <section class="mt-8 px-5">
+        <form action="" method="POST" enctype="multipart/form-data" class="bg-white p-8 rounded-lg shadow-md max-w-2xl mx-auto">
+            <div class="mb-4">
+                <label for="name" class="block text-gray-700 font-semibold mb-2">Car Name</label>
+                <input type="text" name="name" value="{{ car.name }}" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none">
+            </div>
+
+            <div class="mb-4">
+                <label for="location" class="block text-gray-700 font-semibold mb-2">Location</label>
+                <input type="text" name="location" value="{{ car.location }}" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none">
+            </div>
+
+            <div class="mb-4">
+                <label for="price_per_day" class="block text-gray-700 font-semibold mb-2">Price per Day (PKR)</label>
+                <input type="number" name="price_per_day" value="{{ car.price_per_day }}" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none">
+            </div>
+
+            <div class="mb-4">
+                <label for="description" class="block text-gray-700 font-semibold mb-2">Description</label>
+                <textarea name="description" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none">{{ car.description }}</textarea>
+            </div>
+
+            <div class="mb-4">
+                <label for="car_type" class="block text-gray-700 font-semibold mb-2">Car Type</label>
+                <input type="text" name="car_type" value="{{ car.car_type }}" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none">
+            </div>
+
+            <div class="mb-4">
+                <label for="model_year" class="block text-gray-700 font-semibold mb-2">Model Year</label>
+                <input type="number" name="model_year" value="{{ car.model_year }}" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none">
+            </div>
+
+            <div class="mb-4">
+                <label for="car_images" class="block text-gray-700 font-semibold mb-2">Car Images (optional)</label>
+                <input type="file" name="car_images" multiple class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none">
+            </div>
+
+            <button type="submit" class="w-full py-3 bg-green-500 text-white rounded-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 transition duration-300">
+                Update Car
+            </button>
+        </form>
+    </section>
+
+</body>
+</html>

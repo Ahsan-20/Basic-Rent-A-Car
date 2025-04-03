@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Owner Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+
+    <!-- Header -->
+    <header class="bg-indigo-700 text-white py-5 flex items-center justify-between px-5">
+        <!-- Car Icon on the left -->
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/car.png" alt="Car Icon" class="h-10 w-10">
+        <h1 class="text-3xl font-bold text-center flex-grow">Owner Dashboard</h1>
+    </header>
+
+    <!-- Back to Home -->
+    <section class="mt-6 mx-5 text-right">
+        <a href="javascript:void(0);" class="text-white bg-blue-500 hover:bg-blue-600 px-5 py-2 rounded-lg shadow-md transition duration-300" onclick="logoutAndRedirect()">
+            Back to Home
+        </a>
+        <a href="{{ url_for('submit_car') }}" class="ml-4 text-white bg-green-500 hover:bg-green-600 px-5 py-2 rounded-lg shadow-md transition duration-300">
+            Submit a New Car
+        </a>
+    </section>
+
+    <!-- Car List -->
+    <section class="mt-8 px-5">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {% for car in cars %}
+                <div class="car-item bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    {% if car.images %}
+                        <img src="{{ url_for('static', filename='images/' ~ car.images[0]) }}" alt="Car Image" class="w-full h-48 object-cover">
+                    {% endif %}
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold text-gray-800">{{ car.name }}</h3>
+                        <p class="text-gray-600 mt-2">Location: {{ car.location }}</p>
+                        <p class="text-gray-600">Price per Day: PKR{{ car.price_per_day }}</p>
+                        <div class="mt-4 flex justify-between items-center">
+                            <a href="{{ url_for('edit_car', car_id=car.id) }}" class="text-blue-500 hover:text-blue-700 font-medium transition duration-200">
+                                Edit
+                            </a>
+                            <form action="{{ url_for('delete_car', car_id=car.id) }}" method="POST" class="inline-block">
+                                <button type="submit" class="inline-block px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 transition duration-300">
+                                    Delete
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+                <div class="col-span-full text-center py-10">
+                    <p class="text-gray-600 text-xl">No cars available in your dashboard.</p>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <script>
+        function logoutAndRedirect() {
+            // Clear session or token (depending on your session handling)
+            sessionStorage.clear();  // Clear session storage (you may need to adjust this if using cookies or localStorage)
+            // Redirect to home
+            window.location.href = '/'; // Adjust the home route if necessary
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit a Car</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7fc;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #444;
+            padding: 10px 0;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+        nav a:hover {
+            background-color: #555;
+        }
+        form {
+            margin: 20px auto;
+            max-width: 600px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        form input, form textarea, form button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        form button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        form button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Submit a New Car</h1>
+    </header>
+    <nav>
+        <a href="{{ url_for('index') }}">Browse Cars</a>
+        <a href="{{ url_for('owner_dashboard') }}">Manage My Ads</a>
+    </nav>
+
+    <form action="{{ url_for('submit_car') }}" method="POST" enctype="multipart/form-data">
+        <input type="text" name="name" placeholder="Car Name" required>
+        <input type="text" name="location" placeholder="Location" required>
+        <input type="number" name="price_per_day" placeholder="Price Per Day" required>
+        <textarea name="description" placeholder="Description"></textarea>
+        <input type="text" name="car_type" placeholder="Car Type" required>
+        <input type="text" name="model_year" placeholder="Model Year" required>
+        <input type="file" name="car_images" multiple>
+        <button type="submit">Submit Car</button>
+    </form>
+</body>
+</html>

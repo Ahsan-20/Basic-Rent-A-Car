@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script> <!-- SweetAlert2 -->
+    <script>
+        function showError(message) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: message,
+            });
+        }
+    </script>
+</head>
+
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+
+    <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+        <div class="flex justify-center mb-6">
+            <img src="https://img.icons8.com/ios-filled/50/000000/car.png" alt="Car Icon" class="h-16 w-16">
+        </div>
+        <h1 class="text-3xl font-semibold text-center text-gray-800 mb-6">Login</h1>
+
+        <!-- Error message will be shown via SweetAlert -->
+        {% if request.args.get('error') %}
+            <script>
+                showError("{{ request.args.get('error') }}");
+            </script>
+        {% endif %}
+
+        <form method="POST" action="/login" class="space-y-6">
+            <div>
+                <label for="username" class="block text-gray-700">Username</label>
+                <input type="text" name="username" id="username" placeholder="Enter your username" required
+                    class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none">
+            </div>
+            <div>
+                <label for="password" class="block text-gray-700">Password</label>
+                <input type="password" name="password" id="password" placeholder="Enter your password" required
+                    class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none">
+            </div>
+            <button type="submit"
+                class="w-full py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                Login
+            </button>
+        </form>
+
+        <p class="text-center text-gray-600 mt-4">Don't have an account? <a href="{{ url_for('signup') }}"
+                class="text-blue-500 hover:text-blue-600">Sign Up</a></p>
+    </div>
+
+</body>
+</html>

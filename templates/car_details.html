@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ car.name }} - Details</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        function handleRentCar(event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Get form data
+            const renterName = document.getElementById('renter_name').value;
+            const renterEmail = document.getElementById('renter_email').value;
+            const renterPhone = document.getElementById('renter_phone').value;
+            const rentalDuration = document.getElementById('rental_duration').value;
+            const carName = document.getElementById('car_name').value;
+
+            // Check if all fields are filled
+            if (!renterName || !renterEmail || !renterPhone || !rentalDuration) {
+                alert("Please fill in all the fields.");
+                return;
+            }
+
+            // Simulate saving the data (you can replace this with actual AJAX request to save data to the server)
+            console.log("Rental Data:", {
+                renterName,
+                renterEmail,
+                renterPhone,
+                rentalDuration,
+                carName
+            });
+
+            // Display success message
+            document.getElementById('success-message').classList.remove('hidden');
+        }
+    </script>
+</head>
+<body class="bg-gray-100 font-sans">
+
+    <!-- Header -->
+    <header class="bg-indigo-700 text-white py-5 flex items-center justify-between px-5">
+        <!-- Car Icon on the left -->
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/car.png" alt="Car Icon" class="h-10 w-10">
+        <h1 class="text-3xl font-bold text-center flex-grow">{{ car.name }}</h1>
+    </header>
+
+    <!-- Car Details Section -->
+    <section id="carDetails" class="mt-8 px-5">
+        <div class="bg-white p-8 rounded-lg shadow-md max-w-3xl mx-auto">
+            <h3 class="text-xl font-semibold text-gray-800">Description:</h3>
+            <p class="text-gray-700 mb-4">{{ car.description }}</p>
+
+            <h3 class="text-xl font-semibold text-gray-800">Price per Day:</h3>
+            <p class="text-gray-700 mb-4">PKR{{ car.price_per_day }}</p>
+
+            <p class="text-gray-700 mb-4"><strong>Location:</strong> {{ car.location }}</p>
+            <p class="text-gray-700 mb-4"><strong>Type:</strong> {{ car.car_type }}</p>
+            <p class="text-gray-700 mb-4"><strong>Model Year:</strong> {{ car.model_year }}</p>
+
+            <h3 class="text-xl font-semibold text-gray-800 mb-2">Images:</h3>
+            <div id="carImages" class="flex flex-wrap gap-4">
+                {% for image in car.images %}
+                    <img src="{{ url_for('static', filename='images/' ~ image) }}" alt="Car Image" class="w-full max-w-[500px] rounded-lg shadow-md">
+                {% endfor %}
+            </div>
+
+            <!-- Rent Car Form -->
+            <form id="rentForm" onsubmit="handleRentCar(event)" class="mt-8 space-y-4">
+                <input type="text" id="renter_name" name="renter_name" placeholder="Your Name" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
+                <input type="email" id="renter_email" name="renter_email" placeholder="Your Email" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
+                <input type="text" id="renter_phone" name="renter_phone" placeholder="Your Phone Number" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
+                <input type="number" id="rental_duration" name="rental_duration" placeholder="Rental Duration (days)" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
+                <input type="hidden" id="car_name" name="car_name" value="{{ car.name }}">
+                <button type="submit" class="w-full py-3 bg-green-500 text-white rounded-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 transition duration-300">
+                    Rent this Car
+                </button>
+            </form>
+
+            <!-- Success Message -->
+            <div id="success-message" class="hidden mt-4 text-green-600 font-semibold text-center">
+                <p>Car rented successfully! Our team will contact you shortly.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back Button -->
+    <section class="mt-8 text-center">
+        <a href="{{ url_for('index') }}" class="inline-block bg-blue-500 text-white py-3 px-6 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300">
+            Back to Available Cars
+        </a>
+    </section>
+
+</body>
+</html>

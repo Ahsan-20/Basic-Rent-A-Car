@@ -1,0 +1,12 @@
+[
+    {
+        "owner": "ahsan",
+        "name": "cultus",
+        "location": "islamabad",
+        "price_per_day": "10000",
+        "description": "cool white car",
+        "images": [
+            "zidane.jpg"
+        ]
+    }
+]
